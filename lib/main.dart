@@ -17,8 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Messenger Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Color(0xFF1D1E33)
+        ),
+        backgroundColor: Colors.green
       ),
          home: Conversations(),
     );

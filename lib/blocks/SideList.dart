@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:messengerclone/screens/MyProfile.dart';
 
-import '../screens/Dicee.dart';
+import '../screens/BMI.dart';
 import '../screens/Quizzler.dart';
+import '../screens/WeatherData.dart';
 import '../screens/Xylophone.dart';
+import '../screens/Dicee.dart';
+import '../screens/NewStuff.dart';
 
 class SideList extends StatefulWidget {
   SideList({Key? key}) : super(key: key);
@@ -22,8 +25,9 @@ class _SideListState extends State<SideList> {
           child: DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.teal.shade200,
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(12), bottomLeft: Radius.circular(12)),
-
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(12),
+                  bottomLeft: Radius.circular(12)),
             ),
             curve: Curves.easeInCirc,
             child: Container(
@@ -101,8 +105,7 @@ class _SideListState extends State<SideList> {
           title: Text(
             "Xylophone",
           ),
-        ),
-        ListTile(
+        ),        ListTile(
           onTap: () => {
             Navigator.push(
               context,
@@ -116,6 +119,70 @@ class _SideListState extends State<SideList> {
           leading: Icon(Icons.question_answer_outlined),
           title: Text(
             "Quizzler",
+          ),
+        ),
+        ListTile(
+          onTap: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return BMI();
+                },
+              ),
+            )
+          },
+          leading: Icon(Icons.question_answer_outlined),
+          title: Text(
+            "BMI",
+          ),
+        ), ListTile(
+          onTap: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return NewStuff();
+                },
+              ),
+            )
+          },
+          leading: Icon(Icons.add),
+          title: Text(
+            "new stuff",
+          ),
+        ),
+
+        ListTile(
+          onTap: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return WeatherData();
+                },
+              ),
+            )
+          },
+          leading: Icon(Icons.cloud_circle),
+          title: Text(
+            "Weather Data",
+          ),
+        ),
+        ListTile(
+          onTap: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return WeatherData();
+                },
+              ),
+            )
+          },
+          leading: Icon(Icons.chrome_reader_mode_outlined),
+          title: Text(
+            "Kottab Signin",
           ),
         ),
       ],
