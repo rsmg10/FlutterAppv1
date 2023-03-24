@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         ),
         backgroundColor: Colors.green
       ),
-         home: Conversations(),
+         home: Directionality(child: Conversations(),
+         textDirection: TextDirection.ltr,),
     );
   }
 }

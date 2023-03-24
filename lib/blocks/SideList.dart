@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:messengerclone/screens/Kottab.dart';
 import 'package:messengerclone/screens/MyProfile.dart';
 
 import '../screens/BMI.dart';
+import '../screens/Dicee.dart';
+import '../screens/Finance.dart';
+import '../screens/NewStuff.dart';
 import '../screens/Quizzler.dart';
 import '../screens/WeatherData.dart';
 import '../screens/Xylophone.dart';
-import '../screens/Dicee.dart';
-import '../screens/NewStuff.dart';
 
 class SideList extends StatefulWidget {
   SideList({Key? key}) : super(key: key);
@@ -105,7 +107,8 @@ class _SideListState extends State<SideList> {
           title: Text(
             "Xylophone",
           ),
-        ),        ListTile(
+        ),
+        ListTile(
           onTap: () => {
             Navigator.push(
               context,
@@ -136,7 +139,10 @@ class _SideListState extends State<SideList> {
           title: Text(
             "BMI",
           ),
-        ), ListTile(
+        ),
+        ListTile(
+          title: Text("Transactions"),
+          leading: Icon(Icons.add),
           onTap: () => {
             Navigator.push(
               context,
@@ -147,12 +153,23 @@ class _SideListState extends State<SideList> {
               ),
             )
           },
+        ),
+        ListTile(
           leading: Icon(Icons.add),
           title: Text(
-            "new stuff",
+            "Searching",
           ),
+          onTap: () => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Financials();
+                },
+              ),
+            )
+          },
         ),
-
         ListTile(
           onTap: () => {
             Navigator.push(
@@ -175,7 +192,7 @@ class _SideListState extends State<SideList> {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return WeatherData();
+                  return Kottab();
                 },
               ),
             )

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messengerclone/blocks/chatsList.dart';
 import 'package:messengerclone/blocks/stories.dart';
 
+import '../blocks/Fields/CustomNumberWithButtons.dart';
 import '../blocks/SideList.dart';
 import 'MyProfile.dart';
 
@@ -13,9 +14,12 @@ class Conversations extends StatefulWidget {
 class _ConversationsState extends State<Conversations> {
   TextEditingController _searchController = new TextEditingController();
 
+  var numController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       drawer: SideList(),
       body: SafeArea(
         child: Container(
@@ -27,12 +31,12 @@ class _ConversationsState extends State<Conversations> {
                 children: <Widget>[
                   Container(
                     child: InkWell(
-                      onTap: ()=>{
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return MyProfile();
-                        },
-                        )
-                        ),
+                      onTap: () => {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return MyProfile();
+                          },
+                        )),
                       },
                       child: Container(
                         width: 40,
@@ -42,30 +46,26 @@ class _ConversationsState extends State<Conversations> {
                             image: DecorationImage(
                                 image: NetworkImage(
                                     "https://randomuser.me/api/portraits/men/11.jpg"),
-                                fit: BoxFit.cover
-                            )
-                        ),
+                                fit: BoxFit.cover)),
                       ),
                     ),
-
-          ),
-                    Text(
-                      "Chats",
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
-                    Icon(Icons.edit)
+                  ),
+                  Text(
+                    "Chats",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  Icon(Icons.edit)
                 ],
               ),
-                SizedBox(
-                  height: 15,
-                ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 width: double.infinity,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Color(0xFFe9eaec),
-                  borderRadius: BorderRadius.circular(15)
-                ),
+                    color: Color(0xFFe9eaec),
+                    borderRadius: BorderRadius.circular(15)),
                 child: TextField(
                   cursorColor: Color(0xFF000000),
                   controller: _searchController,
@@ -74,13 +74,15 @@ class _ConversationsState extends State<Conversations> {
                       Icons.search,
                       color: Color(0xFF000000).withOpacity(0.5),
                     ),
-                    border: InputBorder.none ,
-                    hintText: "search them people"
+                    border: InputBorder.none,
+                    hintText: "search them people",
                   ),
                 ),
               ),
               stories(storyList: storyList),
-              conversations(conversationList: conversationList,)
+              conversations(
+                conversationList: conversationList,
+              )
             ],
           ),
         ),
@@ -88,6 +90,7 @@ class _ConversationsState extends State<Conversations> {
     );
   }
 }
+
 List storyList = [
   {
     "name": "Novac",
@@ -240,4 +243,3 @@ List conversationList = [
     "time": "15th Jan"
   }
 ];
-
